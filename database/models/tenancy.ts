@@ -24,3 +24,5 @@ export default (sequelize:Sequelize, DataTypes: {BOOLEAN: DataTypes.DataType, DA
   });
   return Tenancy;
 };
+
+export const name = "Tenancy";

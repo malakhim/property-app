@@ -1,4 +1,5 @@
-let router = require("express").Router();
+import express from "express";
+const router = express.Router();
 const productsController = require("../../controller/productsController");
 
 // Matches with "/api/products"

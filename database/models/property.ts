@@ -10,6 +10,7 @@ export default (sequelize:Sequelize, DataTypes: { INTEGER: DataTypes.IntegerData
     static associate(models:any) {
       this.hasMany(models.Tenancy);
       this.hasMany(models.Loan);
+      this.belongsToMany(models.User, {through: 'Users_Property'});
     }
   };
   Property.init({
@@ -24,3 +25,5 @@ export default (sequelize:Sequelize, DataTypes: { INTEGER: DataTypes.IntegerData
   });
   return Property;
 };
+
+export const name = "Property";

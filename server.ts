@@ -1,6 +1,8 @@
 // const express = require('express');
 import express from 'express';
-const db = require("./database/models");
+import {db} from './database/models/';
+// import {routes} from './routes';
+// const db = require("./database/models");
 const routes = require("./routes");
 
 const app = express();

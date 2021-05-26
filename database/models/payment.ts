@@ -16,3 +16,5 @@ export default (sequelize:Sequelize, DataTypes: { INTEGER: DataTypes.IntegerData
   });
   return Payment;
 };
+
+export const name = "Payment"

@@ -24,3 +24,4 @@ export default (sequelize:Sequelize, DataTypes: {STRING: DataTypes.StringDataTyp
   });
   return Tenant;
 };
+export const name = "Tenant";

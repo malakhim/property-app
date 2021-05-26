@@ -1,20 +1,25 @@
-// const Products = db.Products
+import {db} from '../database/models';
+import express from 'express';
 
-// import db from '../database/models';
+console.warn({db})
 
-// module.exports = {
-//     findAll: function (req, res) {
-//         Products
-//         .find(req.query)
-//         .sort({ code:1 })
-//         .then(dbModel => res.json(dbModel))
-//         .catch(err => res.status(422).json(err));
-//     },
-//     create: function(req, res) {
-//         Products
-//           .create(req.body)
-//           .then(dbModel => res.json(dbModel))
-//           .catch(err => res.status(422).json(err));
-//       },
-    
-// }
+export const PropertyController = {
+  findAll: async (req:express.Request, res: express.Response) => {
+    try {
+      const properties = await db.property.findAll();
+      res.json(properties);
+    } catch(err) {
+      res.status(500).json(err)
+    }
+  },
+  create: (req: express.Request, res: express.Response) => {
+    try {
+      db.property.create({
+        address: req.body.address, 
+        purchase_price: req.body.purchase_price
+      });
+    } catch(err) {
+      res.status(500).json(err)
+    }
+  }
+}

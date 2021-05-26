@@ -10,4 +10,5 @@ router.use(function(req: express.Request, res: express.Response) {
   res.sendFile(path.join(__dirname, "../client/public/index.html"));
 });
 
-module.exports = router
+// export {router};
+module.exports = router;
