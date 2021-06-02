@@ -1,6 +1,6 @@
 import {DataTypes, Model, Sequelize} from 'sequelize';
 
-export default (sequelize:Sequelize, DataTypes: {BOOLEAN: DataTypes.DataType, DATE: DataTypes.DateDataType}) => {
+export default (sequelize:Sequelize, DataTypes: {BOOLEAN: DataTypes.DataType, DATE: DataTypes.DateDataType, INTEGER: DataTypes.IntegerDataType, TEXT: DataTypes.TextDataType}) => {
   class Tenancy extends Model {
     /**
      * Helper method for defining associations.
@@ -18,6 +18,8 @@ export default (sequelize:Sequelize, DataTypes: {BOOLEAN: DataTypes.DataType, DA
     active: DataTypes.BOOLEAN,
     start_date: DataTypes.DATE,
     end_date: DataTypes.DATE,
+    amount: DataTypes.INTEGER,
+    periodicity: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Tenancy',

@@ -3,7 +3,6 @@ import {DataTypes, Model, Sequelize} from 'sequelize';
 export default (sequelize:Sequelize, DataTypes: { INTEGER: DataTypes.IntegerDataType; STRING: DataTypes.StringDataType; DATE: DataTypes.DateDataType; }) => {
   class Loan extends Model {
     static associate(models:any) {
-      console.log(models)
       this.belongsTo(models.Property)
     }
   };

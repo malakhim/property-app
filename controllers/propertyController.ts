@@ -1,25 +1,24 @@
 import {db} from '../database/models';
-import express from 'express';
-
-console.warn({db})
+import {Request, Response, NextFunction} from 'express';
 
 export const PropertyController = {
-  findAll: async (req:express.Request, res: express.Response) => {
+  findAll: async (req:Request, res: Response, next: NextFunction) => {
     try {
-      const properties = await db.property.findAll();
+      const properties = await db.Property.findAll();
       res.json(properties);
     } catch(err) {
-      res.status(500).json(err)
+      next(err);
     }
   },
-  create: (req: express.Request, res: express.Response) => {
+  create: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      db.property.create({
-        address: req.body.address, 
+      const property = await db.Property.create({
+        address: req.body.address,
         purchase_price: req.body.purchase_price
       });
+      res.json(property);
     } catch(err) {
-      res.status(500).json(err)
+      next(err);
     }
   }
 }

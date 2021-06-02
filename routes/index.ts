@@ -1,9 +1,11 @@
 import express from "express";
 import path from 'path';
 
+const api = require('./api');
+
 const router = express.Router();
 
-// router.use("/properties", property);
+router.use("/api", api);
 
 // If no API routes are hit, send the Angular app
 router.use(function(req: express.Request, res: express.Response) {
